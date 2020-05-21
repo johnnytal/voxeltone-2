@@ -1,5 +1,5 @@
 document.addEventListener("deviceready", start, false);
-window.onload = start;
+//window.onload = start;
 
 var container;
 var camera, scene, renderer, plane, rowCheck, mouse, raycaster;
@@ -136,7 +136,7 @@ function init() {
     document.addEventListener( 'mousedown', onDocumentMouseDown, false );
     window.addEventListener( 'resize', onWindowResize, false );
     
-    watching = navigator.accelerometer.watchAcceleration(accelerometerSuccess, onError, { frequency: 20 });
+    //watching = navigator.accelerometer.watchAcceleration(accelerometerSuccess, onError, { frequency: 20 });
 }
 
 function onWindowResize() {
@@ -254,7 +254,10 @@ function info(){
 
 function toggleSensor(){
     if (WATCHING){
-        navigator.accelerometer.clearWatch(watching);
+    	try{
+        	navigator.accelerometer.clearWatch(watching);
+        }catch(e){}
+        
         $('#stopAccel').val('Sensors Off');
         WATCHING = false;
     }
@@ -272,7 +275,7 @@ function initAd(){
 
     if(AdMob) AdMob.createBanner({
        adId: admobid.banner,
-       position: AdMob.AD_POSITION.TOP_CENTER,
+       position: AdMob.AD_POSITION.BOTTOM_CENTER,
        autoShow: true
     });
 }
