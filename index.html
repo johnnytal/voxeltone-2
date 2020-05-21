@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+	    <style>
+	        @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+	        @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+	    </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="js/jquery-ui-1.12.1/jquery-ui.min.css"/>
+    
+        <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="xdk/init-dev.js"></script>
+		<script type="text/javascript" src="js/three.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/DragControls.js"></script>
+		<script type="text/javascript" src="js/TrackballControls.js"></script>
+		<script type="text/javascript" src="js/Projector.js"></script>
+		<script type="text/javascript" src="js/CanvasRenderer.js"></script>
+        <script type="text/javascript" src="js/timbre.js"></script>
+        <script type="text/javascript" src="js/cosc.js"></script>
+        <script type="text/javascript" src="js/teoria.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script>
+			!function(a){function f(a,b){if(!(a.originalEvent.touches.length>1)){a.preventDefault();var c=a.originalEvent.changedTouches[0],d=document.createEvent("MouseEvents");d.initMouseEvent(b,!0,!0,window,1,c.screenX,c.screenY,c.clientX,c.clientY,!1,!1,!1,!1,0,null),a.target.dispatchEvent(d)}}if(a.support.touch="ontouchend"in document,a.support.touch){var e,b=a.ui.mouse.prototype,c=b._mouseInit,d=b._mouseDestroy;b._touchStart=function(a){var b=this;!e&&b._mouseCapture(a.originalEvent.changedTouches[0])&&(e=!0,b._touchMoved=!1,f(a,"mouseover"),f(a,"mousemove"),f(a,"mousedown"))},b._touchMove=function(a){e&&(this._touchMoved=!0,f(a,"mousemove"))},b._touchEnd=function(a){e&&(f(a,"mouseup"),f(a,"mouseout"),this._touchMoved||f(a,"click"),e=!1)},b._mouseInit=function(){var b=this;b.element.bind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),c.call(b)},b._mouseDestroy=function(){var b=this;b.element.unbind({touchstart:a.proxy(b,"_touchStart"),touchmove:a.proxy(b,"_touchMove"),touchend:a.proxy(b,"_touchEnd")}),d.call(b)}}}(jQuery);
+		</script>
+	</head>
+	<body>
+	    <input type="button" value="Reset" onclick="reload();" />
+	    <input type="button" value="Info" onclick="info();" />
+	    <input type="button" id="scaleBtn" value="Pentatonic" onclick="changeScale();" />
+	    <input type="button" id="stopAccel" value="Sensors Off" onclick="toggleSensor();" />
+	    <div id="slider">
+	        <div id="custom-handle" class="ui-slider-handle"></div>
+	    </div>
+	
+	    <section>
+	        <h3>Voxeltone - version 2.71</h3>
+	        <p>- Tap inside the grid to add voxel, tap a voxel to remove it.</p>
+	        <p>- Move the slider to change the tempo.</p>
+	        <p>- You can zoom in / out, or tilt the device to change the perspective.</p>
+	        <p>- You can add pentatonic / chrmoatic notes.</p>
+	        <p>- Click 'Reset' to start over and change colors.</p>
+	        <footer>
+	            <p>Created by iLyich Games, please rate if you like.</p>
+	            <p>Tap to close.</p>
+	        </footer>
+	        <br/>  
+	    </section>
+	</body>
+</html>
