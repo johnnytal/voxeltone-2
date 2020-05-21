@@ -234,7 +234,7 @@ function rowTimer(rowCheck){
                     
                 var synth = notesToPlay[n].z;
                     
-                env = T("perc", {a: 235, s:70, d:70, r:60000 / tempo}, synth).on("ended", function() {
+                env = T("perc", {a: 235, s:70, d: 70 + (60000 / tempo), r: 200 + (60000 / tempo)}, synth).on("ended", function() {
                     this.pause();
                 }).bang().play();             
             }     
